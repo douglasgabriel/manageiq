@@ -23,6 +23,7 @@ class PhysicalServer < ApplicationRecord
   belongs_to :physical_chassis, :foreign_key => :physical_chassis_id, :inverse_of => :physical_servers
 
   has_one :computer_system, :as => :managed_entity, :dependent => :destroy
+  has_one :physical_component, :as => :component, :dependent => :destroy
   has_one :hardware, :through => :computer_system
   has_one :host, :inverse_of => :physical_server
   has_one :asset_detail, :as => :resource, :dependent => :destroy
